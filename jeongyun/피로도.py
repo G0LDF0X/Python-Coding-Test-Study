@@ -6,8 +6,7 @@ def solution(k, dungeons):
     
     def dfs(k, dungeons, visited, cnt):
         global answer
-        if cnt > answer:
-            answer = cnt
+        answer = max(cnt, answer)
         # print(answer, cnt)
         
         for i in range(len(dungeons)):
