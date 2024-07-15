@@ -1,6 +1,16 @@
-# 프로세스
 from collections import deque
-priorities = [2, 1, 3, 2]
-queue = deque([(priority, idx) for idx, priority in enumerate(priorities)])
 
-print(queue)
+def solution(priorities, location):
+    queue = deque([(i, p) for i, p in enumerate(priorities)])
+    answer = 0
+    
+    while queue:
+        idx, priority = queue.popleft()
+        if queue and max(queue, key=lambda x: x[1])[1] > priority:
+            queue.append((idx, priority))
+        else:
+            answer += 1
+            if idx == location:
+                break
+    
+    return answer
