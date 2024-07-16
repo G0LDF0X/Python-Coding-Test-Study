@@ -60,8 +60,9 @@ def test_2(bridge_length, weight, truck_weights):
     bridge.append(move)
 
     while bridge:
-        if bridge_weigth <= ???
-        # 무게치라는 게 있음. 무게치로 구분함
+        if bridge_weigth <= weight:
+            # 무게가 무게치보다 낮다면
+            
         
     
     
