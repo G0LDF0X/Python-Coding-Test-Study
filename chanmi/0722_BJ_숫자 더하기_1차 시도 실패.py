@@ -22,8 +22,8 @@ while True:
 
     turn_count = 0 # 0이면 first_number에 넣을 차례, 1이면 second_number에 넣을 차례
 
-    while number_list or zero_list:
-        if len(number_list) > 0 and number_list[0] == 0:
+    while number_list:
+        if number_list[0] == 0:
             # 둘다 가장 앞자리인 경우
             if first_number == [] or second_number == []:
                 zero_list.append(number_list.popleft())

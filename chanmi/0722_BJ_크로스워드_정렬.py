@@ -28,6 +28,9 @@ for i in range(C):
     for word in word_list:
         if len(word) > 1:
             sort_list.append(word)
-    
+
+print("이중배열\n", word_data)
+print("정렬 전\n", sort_list)
+
 sort_list.sort()
 print(sort_list[0])
