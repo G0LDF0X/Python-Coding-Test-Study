@@ -16,9 +16,7 @@ N, M = map(int, input().split())
 tree_list = list(map(int, input().split()))
 tree_list.sort()
 
-# 10 15 17 20
-# 15를 기준으로 자른다면, 15보다 뒤쪽에 있는 뒷값에 전부 15를 빼고 남은 값의 합이 가져갈 수 있는 나무가 됨
-# 17을 기준으로 자른다면, 17보다 뒤쪽에 있는 뒷값에 전부 17을 빼고 남은 값의 합이 가져갈 수 있는 나무가 됨
+# 나무의 start가 0인 이유 : 모든 나무를 잘라야 M을 만족하는 경우도 생기기 때문
 
 start = 0
 end = max(tree_list)
