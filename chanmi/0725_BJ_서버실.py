@@ -37,13 +37,17 @@ computer_list.sort()
 
 start = 1
 end = sum(computer_list)
+answer = 0
 
 if sum(computer_list) % 2 == 0:
     mid_value = sum(computer_list) // 2
 else:
     mid_value = sum(computer_list) // 2 + 1
 
-answer = 0
+# while문 안에서 for문을 쓰지 않고, 시간 복잡도를 줄이기 위해 컴퓨터의 누적 합계 리스트를 만들어본다.
+prefix_sum = [0] * (len(computer_list) + 1)
+for i in range(1, len(computer_list) + 1):
+    prefix_sum[i] = prefix_sum[i - 1] + computer_list[i - 1]
 
 while start <= end:
     # on_time : 냉각기를 켠 시간
@@ -52,11 +56,8 @@ while start <= end:
     computer_sum = 0
 
     # 냉각기를 켰을 때 꺼지는 컴퓨터의 수를 더하기
-    for computer in computer_list:
-        if computer > on_time:
-            computer_sum += on_time
-        else:
-            computer_sum += computer
+    idx = next((i for i, v in enumerate(computer_list) if v > on_time), len(computer_list))
+    computer_sum = prefix_sum[idx] + (len(computer_list) - idx) * on_time
 
     # 컴퓨터를 충분히 켠 경우에는, 냉각기 켜는 시간 줄이기.
     # 즉, end를 감소시키면 됨.
