@@ -31,3 +31,39 @@ else:
                 print(len(list))
                 break
         
+
+
+
+
+
+
+
+#효율적인 코드
+
+import sys
+from collections import defaultdict
+
+def max_fruit_length(N, fruits):
+    max_length = 0
+    start = 0
+    fruit_count = defaultdict(int)
+
+    for end in range(N):
+        fruit_count[fruits[end]] += 1
+
+        while len(fruit_count) > 2:
+            fruit_count[fruits[start]] -= 1
+            if fruit_count[fruits[start]] == 0:
+                del fruit_count[fruits[start]]
+            start += 1
+
+        max_length = max(max_length, end - start + 1)
+
+    return max_length
+
+# 입력 받기
+N = int(sys.stdin.readline().strip())
+fruits = list(map(int, sys.stdin.readline().strip().split()))
+
+# 결과 출력
+print(max_fruit_length(N, fruits))
