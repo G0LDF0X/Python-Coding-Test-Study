@@ -30,24 +30,6 @@ def solution(array):
     for i in range(len(array)):
         count[array[i]] += 1
 
-
-    # while True:
-    #     # first 가 end와 같거나 end보다 클 시 탐색 종료
-    #     if first > end:
-    #         break
-
-    #     # 5 카운트 1 증가, 1 카운트 1증가
-    #     first_data = array[first] # 5
-    #     end_data = array[end] # 1
-    #     print(first_data, end_data)
-
-    #     count[first_data] += 1
-    #     count[end_data] += 1
-
-    #     first += 1 # 1
-    #     end -= 1 # 3
-
-
     first = 0
     end = len(array)-1
     # count값 비교
