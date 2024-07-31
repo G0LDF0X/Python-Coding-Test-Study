@@ -20,7 +20,7 @@ def fibonacci(n):
 print(fibonacci(n))
 
 
-#변수 두 개 만으로 피보나치 수열
+#변수 두 개 만으로 피보나치 수열 > 근데 시간 더걸림. 리스트가 더 빠름.
 
 import sys
 
