@@ -1,6 +1,4 @@
 import sys
-import re
-import copy
 
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
