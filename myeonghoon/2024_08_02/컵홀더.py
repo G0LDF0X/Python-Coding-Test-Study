@@ -17,11 +17,8 @@ def solution(N, sit):
     answer = 0
     count_ll = 0
     cup_count=0
-
-    split_s = sit.split('S')
-
-    for ll in split_s:    
-        count_ll += ll.count('LL')
+     
+    count_ll += sit.count('LL')
 
     cup_count = len(sit) +1 - count_ll
 
