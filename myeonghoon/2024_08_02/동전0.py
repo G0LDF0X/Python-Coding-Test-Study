@@ -24,7 +24,7 @@ def solution(N, K):
     coin_list = []
 
     for _ in range(N):
-        coin_list.append(list(map(int, input().split())))
+        coin_list.append(list(map(int, input().split()))) 
 
     coin_list = sorted(coin_list, reverse=True)
 
