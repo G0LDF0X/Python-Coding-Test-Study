@@ -1,31 +1,87 @@
-from collections import deque
+# from collections import deque
 
-def can_reach_end(N, game_map):
-    directions = [(1, 0), (0, 1)]
-    que = deque([0, 0])
-    visited = [[False] * N for _ in range(N)]
-    visited[0][0] = True
+# def can_reach_end(N, game_map):
+#     directions = [(1, 0), (0, 1)]
+#     que = deque([0, 0])
+#     visited = [[False] * N for _ in range(N)]
+#     visited[0][0] = True
 
-    while que:
-        x, y = que.popleft()
-        if game_map[x][y] == -1:
-            return "HaruHaru"
-        jump_distance = game_map[x][y]
-        for dx, dy in directions:
-            nx, ny = x + dx * jump_distance, y + dy * jump_distance
-            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]:
-                visited[nx][ny] = True
-                que.append((nx, ny))
+#     while que:
+#         x, y = que.popleft()
+#         if game_map[x][y] == -1:
+#             return "HaruHaru"
+#         jump_distance = game_map[x][y]
+#         for dx, dy in directions:
+#             nx, ny = x + dx * jump_distance, y + dy * jump_distance
+#             if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]:
+#                 visited[nx][ny] = True
+#                 que.append((nx, ny))
 
-    return "Hing"
+#     return "Hing"
 
+# N = int(input().strip())
+# game_map = [list(map(int, input().strip().split())) for _ in range(N)]
+
+
+
+# # 결과 출력
+# print(can_reach_end(N, game_map))
+
+
+
+
+import sys
+
+sys.setrecursionlimit(10**6)
+input = sys.stdin.readline
+
+#게임 구역의 크기는 N이다. (2 또는 3)
 N = int(input().strip())
-game_map = [list(map(int, input().strip().split())) for _ in range(N)]
+graph = []
+print(f"N : {N}")
+
+for i in range(N):
+    graph.append(list(map(int, input().split())))
+
+# print(f"GRAPH : {graph}")
+# GRAPH : 
+# [[1, 1, 10], 
+# [1, 5, 1], 
+# [2, 2, -1]]
+
+visited = [[0]*N for _ in range(N)]
+print(visited)
+
+# visited = 
+# [[0, 0, 0], 
+# [0, 0, 0], 
+# [0, 0, 0]]
+
+def dfs(x, y):
+    visited[x][y] = 1
+
+    dx = [graph[x][y], 0]
+    dy = [0, graph[x][y]]
+
+    for i in range(2):
+        nx = x + dx[i]
+        ny = y + dy[i]
+
+        if nx < 0 or nx >= N or ny < 0 or ny >= N:
+            continue
+        
+        if visited[nx][ny] == 0:
+            dfs(nx, ny)
+
+dfs(0, 0)            
+
+if visited[N-1][N-1] == 1:
+    print("HaruHaru")
+else:
+    print("Hing")
 
 
 
-# 결과 출력
-print(can_reach_end(N, game_map))
 
 
 
