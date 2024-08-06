@@ -29,7 +29,7 @@
 
 
 
-
+# 1단계 N 받고, graph 받아오기
 import sys
 
 sys.setrecursionlimit(10**6)
@@ -38,6 +38,7 @@ input = sys.stdin.readline
 #게임 구역의 크기는 N이다. (2 또는 3)
 N = int(input().strip())
 graph = []
+
 print(f"N : {N}")
 
 for i in range(N):
