@@ -29,7 +29,7 @@
 
 
 
-# 1단계 N 받고, graph 받아오기
+# 1단계 N 받아오기
 import sys
 
 sys.setrecursionlimit(10**6)
@@ -41,6 +41,8 @@ graph = []
 
 print(f"N : {N}")
 
+
+# 2단계 graph 받아오기
 for i in range(N):
     graph.append(list(map(int, input().split())))
 
@@ -50,6 +52,7 @@ for i in range(N):
 # [1, 5, 1], 
 # [2, 2, -1]]
 
+# 3단계 방문여부(구몬장부)
 visited = [[0]*N for _ in range(N)]
 print(visited)
 
@@ -58,6 +61,8 @@ print(visited)
 # [0, 0, 0], 
 # [0, 0, 0]]
 
+
+# 4단계 탐색함수 작성하기
 def dfs(x, y):
     visited[x][y] = 1
 
@@ -76,6 +81,8 @@ def dfs(x, y):
 
 dfs(0, 0)            
 
+
+# 5단계 정답조건 지정하기
 if visited[N-1][N-1] == 1:
     print("HaruHaru")
 else:
