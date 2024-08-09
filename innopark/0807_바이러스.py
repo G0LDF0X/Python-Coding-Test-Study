@@ -25,10 +25,10 @@ def dfs(node):
         dfs(next)
 
 dfs(1)
-print(graph)
+# print(graph)
 # [[], [2, 5], [1, 3, 5], [2], [7], [1, 2, 6], [5], [4]]
 
-print(visited)
+# print(visited)
 # [0, 1, 1, 1, 0, 1, 1, 0]
 
 print(sum(visited) - 1)

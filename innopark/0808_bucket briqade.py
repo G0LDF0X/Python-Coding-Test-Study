@@ -28,7 +28,7 @@ def bfs(start, end):
             if 0 <= nx < 10 and 0 <= ny < 10 and not visited[nx][ny] and grid[nx][ny] != 'R':
                 visited[nx][ny] = True      #위치가 바위가 아니고 grid 내에 있으면 그 위치를 queue에 추가한다.
                 queue.append((nx, ny, dist + 1))
-                print(queue)
+                
     return -1
 
 print(bfs(lake, barn))
