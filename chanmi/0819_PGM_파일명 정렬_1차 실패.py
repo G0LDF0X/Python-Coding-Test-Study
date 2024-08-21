@@ -29,12 +29,12 @@ def solution(files):
         final_number = int(''.join(number))
         final_tail = ''.join(tail)
         
-        file_data.append([final_head, final_number, final_tail, index])
+        file_data.append([final_head, final_number, final_tail, file])
         index += 1
 
     result = sorted(file_data, key=lambda x: (x[0], x[1], x[2]))
     
     answer = []
     for i in range(len(result)):
-        answer.append(files[result[i][3]])
+        answer.append(result[i][3])
     return answer
