@@ -8,14 +8,28 @@
 # name[2] == photo[1][3] -> false -> photo[1][3 +1] -> if [3 +1] > len(photo[1]) -1 -> true -> photo[1 +1][0]
 # 생략
 # for ? in range(len(photo)):
+# 위 방법 실패
+
 
 def solution(name, yearning, photo):
     answer = []
-
+    
+    for j in range(len(photo)):
+        total = 0
+        for i in range(len(name)):
+            if name[i] == photo[j][i]:
+                total += yearning[i]
+        answer.append(total)
+        
+        
     return answer
+
 
 name = ["may", "kein", "kain", "radi"]
 yearning = [5, 10, 1, 3]
 photo = [["may", "kein", "kain", "radi"],["may", "kein", "brin", "deny"], ["kon", "kain", "may", "coni"]]
 
-solution(name, yearning, photo)
+# photo[0].pop(2)
+# print(photo)
+
+print(solution(name, yearning, photo))
