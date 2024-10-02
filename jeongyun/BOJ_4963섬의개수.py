@@ -8,9 +8,11 @@ dy = [0, 0, -1, 1, -1, -1, 1, 1]
 
 def dfs(x, y):
     visited[x][y] = True
+    
     for i in range(8):
         nx = x + dx[i]
         ny = y + dy[i]
+        
         if 0 <= nx < h and 0 <= ny < w:
             if graph[nx][ny] == 1 and not visited[nx][ny]:
                 dfs(nx, ny)
